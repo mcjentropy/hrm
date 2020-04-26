@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- zTree -->
+  <link rel="stylesheet" href="/static/initCss.css">
+  <link rel="stylesheet" href="/static/zTree_v3/css/demo.css" type="text/css">
+  
+  <link rel="stylesheet" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="/static/bootstrapDialog/css/bootstrap-dialog.min.css">
+
+  <!-- select2 -->
+  <link rel="stylesheet" href="/static/bower_components/select2/dist/css/select2.min.css" type="text/css">  
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/static/bower_components/font-awesome/css/font-awesome.min.css">
+  
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/static/bower_components/Ionicons/css/ionicons.min.css">
+  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+  
+  <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<!--
+	BODY TAG OPTIONS:
+	=================
+	Apply one or more of the following classes to get the
+	desired effect
+	|---------------------------------------------------------|
+	| SKINS         | skin-blue                               |
+	|               | skin-black                              |
+	|               | skin-purple                             |
+	|               | skin-yellow                             |
+	|               | skin-red                                |
+	|               | skin-green                              |
+	|---------------------------------------------------------|
+	|LAYOUT OPTIONS | fixed                                   |
+	|               | layout-boxed                            |
+	|               | layout-top-nav                          |
+	|               | sidebar-collapse                        |
+	|               | sidebar-mini                            |
+	|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+
+      
+      <!-- logo for regular state and mobile devices -->
+
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          
+          <li class="dropdown tasks-menu">
+            <a href="/logout">
+              <i class="fa fa-power-off"></i>
+            </a>
+          </li>
+          
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+<!--              <img th:src="${userDto.headImg}" class="user-image" alt="User Image">-->
+                <img src="file:///D:/pic/oss37516ce2e9ed41b7949b02627713a508.jpg" alt="">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs" th:text="${userDto.username}"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <img th:src="${userDto.headImg}" class="img-circle" alt="User Image">
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+               <div class="pull-left">
+                  <button class="btn-sm btn-primary" id="userHeadImgUploadBtn">上传头像</button>
+                </div>
+                <div class="pull-right">
+                  <button class="btn-sm btn-primary" id="userInfoEditBtn">修改个人信息</button>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <aside class="main-sidebar">
+
+    <section class="sidebar">
+
+      <div class="user-panel">
+        <div class="pull-left image">
+<!--          <img th:src="${userDto.headImg}" class="img-circle" alt="User Image">-->
+            <img src="D:\pic\oss37516ce2e9ed41b7949b02627713a508.jpg" alt="">
+        </div>
+        <div class="pull-left info">
+            
+          <p th:text="${userDto.username}"></p>
+        </div>
+      </div>
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header" th:text="${userDto.role.name}"></li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+
+    <!-- Default to the left -->
+
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane active" id="control-sidebar-home-tab">
+        <h3 class="control-sidebar-heading">Recent Activity</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:;">
+              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                <p>Will be 23 on April 24th</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+        <h3 class="control-sidebar-heading">Tasks Progress</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:;">
+              <h4 class="control-sidebar-subheading">
+                Custom Template Design
+                <span class="pull-right-container">
+                    <span class="label label-danger pull-right">70%</span>
+                  </span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+      </div>
+
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<div class="modal fade modalIndex" id="upload_user_image_Modal" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">上传图片</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" enctype="multipart/form-data" action="/uploadUserImage" id="upload_user_image_form_id" method="post">
+					<div class="form-group">
+						<label for="upload_user_image" class="col-sm-2 control-label">选择图片(小于7M)</label>
+
+						<div class="col-sm-10">
+							<input id="upload_user_image" type="file" name="file" accept="image/*">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<button type="button" class="btn btn-info pull-right"
+								id="upload_user_image_submit_btn_id">提交</button>
+						</div>
+					</div>
+				</form>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade modalIndex" id="edit_user_info_Modal" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">修改个人信息</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" action="/editUserInfo" id="edit_user_info_form_id" method="post">
+					<div class="form-group">
+						<label for="edit_user_nickname" class="col-sm-2 control-label">昵称</label>
+
+						<div class="col-sm-10">
+							<input type="text" name="nickname" id="edit_user_nickname" class="form-control" th:value="${userDto.nickname}"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit_user_password" class="col-sm-2 control-label">密码</label>
+
+						<div class="col-sm-10">
+							<input type="password" name="password" class="form-control" id="edit_user_password" placeholder="不输入默认不修改"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="check_user_password" class="col-sm-2 control-label">确认密码</label>
+
+						<div class="col-sm-10">
+							<input type="password" name="checkPassword" class="form-control" id="check_user_password" placeholder="不输入默认不修改"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<button type="button" class="btn btn-info pull-right"
+								id="edit_user_info_submit_btn_id">提交</button>
+						</div>
+					</div>
+				</form>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade modalIndex" id="waiting_Modal" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">请等待</h4>
+			</div>
+			<div class="modal-body">
+				<p>waiting...</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- jquery form -->
+<script src="/static/jquery.form.js"></script>
+
+<!-- Bootstrap 3.3.7 -->
+<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="/static/bootstrapDialog/js/bootstrap-dialog.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="/static/dist/js/adminlte.min.js"></script>
+
+<!-- select2 -->
+<script src="/static/bower_components/select2/dist/js/select2.min.js"></script>
+
+<script src="/static/index.js"></script>
+
+</body>
+</html>

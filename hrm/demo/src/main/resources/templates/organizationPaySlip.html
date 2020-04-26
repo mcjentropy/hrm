@@ -1,0 +1,152 @@
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="/static/bootstrapTable/bootstrap-table.min.css">
+
+<div class="box">
+	<div class="box-header with-border">
+		<h3 class="box-title">工资管理</h3>
+
+		<div class="box-tools pull-right">
+			<div style="display:inline-block;border:1px solid;" >
+				<input type="date" id="select_organizationPaySlip_startDay" name="startDay" />
+			</div>
+			<div style="display:inline-block;border:1px solid;" >
+				<input type="date" id="select_organizationPaySlip_endDay" name="endDay" />
+			</div>
+			<button type="button" class="btn btn-box-tool" data-widget="collapse">
+				<i class="fa fa-minus"></i>
+			</button>
+			<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+		</div>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body" id="organizationPaySlip_table_id" style="">	
+
+	</div>
+	<!-- ./box-body -->
+	<div class="box-footer" style="">
+		<button class="btn btn-primary" id="add_organizationPaySlip_btn_id">新增</button>
+	</div>
+</div>
+
+
+<div class="modal fade modalIndex" id="add_organizationPaySlip_Modal" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">添加工资条</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" action="#" id="add_organizationPaySlip_form_id">
+					<div class="form-group">
+						<label for="add_organizationPaySlip_printDay" class="col-sm-2 control-label">输出日期</label>
+						<div class="col-sm-10">
+							<input type="date" class="form-control" id="add_organizationPaySlip_printDay"
+								name="printDay">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add_organizationPaySlip_startDay" class="col-sm-2 control-label">计算开始日期</label>
+
+						<div class="col-sm-10">
+							<input type="date" class="form-control" id="add_organizationPaySlip_startDay"
+								name="startDay" >
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add_organizationPaySlip_endDay" class="col-sm-2 control-label">计算结束日期</label>
+
+						<div class="col-sm-10">
+							<input type="date" class="form-control" id="add_organizationPaySlip_endDay"
+								name="endDay" >
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add_organizationPaySlip_workDays" class="col-sm-2 control-label">工作天数</label>
+
+						<div class="col-sm-10">
+							<input type="number" class="form-control" id="add_organizationPaySlip_workDays"
+								name="workDays" placeholder="工作天数">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add_organizationPaySlip_lateOrLeaveTimes" class="col-sm-2 control-label">迟到早退天数</label>
+
+						<div class="col-sm-10">
+							<input type="number" class="form-control" id="add_organizationPaySlip_lateOrLeaveTimes"
+								name="lateOrLeaveTimes" placeholder="迟到早退天数">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="up_organizationPaySlip_absentTimes" class="col-sm-2 control-label">缺席矿工天数</label>
+
+						<div class="col-sm-10">
+							<input type="number" class="form-control" id="add_organizationPaySlip_absentTimes"
+								name="absentTimes" placeholder="缺席矿工天数">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add_organizationPaySlip_realCash" class="col-sm-2 control-label">实发工资</label>
+
+						<div class="col-sm-10">
+							<input type="number" class="form-control" id="add_organizationPaySlip_realCash"
+								name="realCash" placeholder="实发工资">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add_organizationPaySlip_cash" class="col-sm-2 control-label">基本工资</label>
+
+						<div class="col-sm-10">
+							<input type="number" class="form-control" id="add_organizationPaySlip_cash"
+								name="cash" placeholder="基本工资">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add_organizationPaySlip_bonusCash" class="col-sm-2 control-label">奖惩金额</label>
+
+						<div class="col-sm-10">
+							<input type="number" class="form-control" id="add_organizationPaySlip_bonusCash"
+								name="bonusCash" placeholder="奖惩金额">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="add_organizationPaySlip_username" class="col-sm-2 control-label">员工名</label>
+
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="add_organizationPaySlip_username"
+								name="username" placeholder="员工名">
+						</div>
+					</div>
+				
+					<div class="form-group">
+						<div class="col-sm-12">
+							<button type="reset" class="btn btn-warning pull-left">重置</button>
+							<button type="button" class="btn btn-info pull-right"
+								id="add_organizationPaySlip_submit_btn_id">提交</button>
+						</div>
+					</div>
+				</form>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/static/bootstrapTable/bootstrap-table.min.js"></script>
+<script src="/static/bootstrapTable/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/static/bootstrapTable/extensions/export/tableExport.min.js"></script>
+<script src="/static/bootstrapTable/extensions/export/bootstrap-table-export.min.js"></script>
+<script src="/static/organizationPaySlip.js"></script>
